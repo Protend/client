@@ -7,7 +7,6 @@ import {
   CSidebarNav,
   CSidebarNavDivider,
   CSidebarNavTitle,
-  CSidebarMinimizer,
   CSidebarNavDropdown,
   CSidebarNavItem,
 } from '@coreui/react'
@@ -50,7 +49,6 @@ const TheSidebar = () => {
           }}
         />
       </CSidebarNav>
-      <CSidebarMinimizer className="c-d-md-down-none"/>
     </CSidebar>
   )
 }
