@@ -79,7 +79,9 @@ export default () => {
     setShowModal(false)
   }
 
-  const handleEditButton = (index) => {
+  const handleEditButton = (id) => {
+    let index = list.findIndex(v => v.id === id)
+
     setModalId(list[index]['id'])
     setModalUnitId(list[index]['id_unit'])
     setModalAreaId(list[index]['id_area'])
@@ -175,7 +177,7 @@ export default () => {
                         <CButton
                           color="info"
                           disabled={modalUnitList.length === 0 || modalAreaList.length === 0}
-                          onClick={() => handleEditButton(index)}
+                          onClick={() => handleEditButton(item.id)}
                         >
                           Editar
                         </CButton>
