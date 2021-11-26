@@ -209,13 +209,13 @@ export default () => {
           <CSelect
             id="modal-unit"
             custom
+            value={modalUnitId}
             onChange={(e) => setModalUnitId(e.target.value)}
           >
             {modalUnitList.map((item, index) => (
               <option
                 key={index}
                 value={item.id}
-                selected={item.id === modalUnitId}
               >
                 {item.name}
               </option>
@@ -228,13 +228,13 @@ export default () => {
           <CSelect
             id="modal-area"
             custom
+            value={modalAreaId}
             onChange={(e) => setModalAreaId(e.target.value)}
           >
             {modalAreaList.map((item, index) => (
               <option
                 key={index}
                 value={item.id}
-                selected={item.id === modalAreaId}
               >
                 {item.title}
               </option>
