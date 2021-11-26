@@ -159,6 +159,16 @@ export default () => {
       let token = localStorage.getItem('token')
       let json = await request('put', `/warning/${id}`, {}, token)
       return json
+    },
+    getFoundAndLost: async () => {
+      let token = localStorage.getItem('token')
+      let json = await request('get', `/foundandlost`, {}, token)
+      return json
+    },
+    updateFoundAndLost: async (id) => {
+      let token = localStorage.getItem('token')
+      let json = await request('put', `/foundandlost/${id}`, {}, token)
+      return json
     }
   }
 }
