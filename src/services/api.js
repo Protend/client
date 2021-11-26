@@ -119,6 +119,36 @@ export default () => {
       let token = localStorage.getItem('token')
       let json = await request('delete', `/doc/${id}`, {}, token)
       return json
+    },
+    getReservations: async () => {
+      let token = localStorage.getItem('token')
+      let json = await request('get', `/reservations`, {}, token)
+      return json
+    },
+    getUnits: async () => {
+      let token = localStorage.getItem('token')
+      let json = await request('get', `/units`, {}, token)
+      return json
+    },
+    getAreas: async () => {
+      let token = localStorage.getItem('token')
+      let json = await request('get', `/areas`, {}, token)
+      return json
+    },
+    addReservation: async (data) => {
+      let token = localStorage.getItem('token')
+      let json = await request('post', `/reservations`, data, token)
+      return json
+    },
+    updateReservation: async (id, data) => {
+      let token = localStorage.getItem('token')
+      let json = await request('put', `/reservation/${id}`, data, token)
+      return json
+    },
+    removeReservation: async (id) => {
+      let token = localStorage.getItem('token')
+      let json = await request('delete', `/reservation/${id}`, {}, token)
+      return json
     }
   }
 }
