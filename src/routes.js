@@ -7,6 +7,7 @@ const Documents = React.lazy(() => import('./views/Documents'));
 const Reservations = React.lazy(() => import('./views/Reservations'));
 const Warnings = React.lazy(() => import('./views/Warnings'));
 const FoundAndLost = React.lazy(() => import('./views/FoundAndLost'));
+const Users = React.lazy(() => import('./views/Users'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -17,6 +18,7 @@ const routes = [
   { path: '/reservations', name: 'Reservations', component: Reservations },
   { path: '/warnings', name: 'Warnings', component: Warnings },
   { path: '/foundandlost', name: 'FoundAndLost', component: FoundAndLost },
+  { path: '/users', name: 'Users', component: Users },
 ];
 
 export default routes;
