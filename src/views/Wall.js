@@ -56,7 +56,9 @@ export default () => {
     setShowModal(false)
   }
 
-  const handleEditButton = (index) => {
+  const handleEditButton = (id) => {
+    let index = list.findIndex(v => v.id === id)
+
     setModalId(list[index]['id'])
     setModalTitleField(list[index]['title'])
     setModalBodyField(list[index]['body'])
@@ -89,9 +91,9 @@ export default () => {
     }
   }
 
-  const handleRemoveButton = async (index) => {
+  const handleRemoveButton = async (id) => {
     if (window.confirm('Tem certeza que deseja excluir?')) {
-      const result = await api.removeAll(list[index]['id'])
+      const result = await api.removeAll(id)
 
       if (result.error === '') {
         getList()
@@ -132,18 +134,18 @@ export default () => {
                 pagination
                 itemsPerPage={5}
                 scopedSlots={{
-                  'actions': (item, index) => (
+                  'actions': (item) => (
                     <td>
                       <CButtonGroup>
                         <CButton
                           color="info"
-                          onClick={() => handleEditButton(index)}
+                          onClick={() => handleEditButton(item.id)}
                         >
                           Editar
                         </CButton>
                         <CButton
                           color="danger"
-                          onClick={() => handleRemoveButton(index)}
+                          onClick={() => handleRemoveButton(item.id)}
                         >
                           Excluir
                         </CButton>

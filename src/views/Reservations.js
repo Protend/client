@@ -116,9 +116,9 @@ export default () => {
     }
   }
 
-  const handleRemoveButton = async (index) => {
+  const handleRemoveButton = async (id) => {
     if (window.confirm('Tem certeza que deseja excluir?')) {
-      const result = await api.removeReservation(list[index]['id'])
+      const result = await api.removeReservation(id)
 
       if (result.error === '') {
         getList()
@@ -171,7 +171,7 @@ export default () => {
                       {item.reservation_date_formatted}
                     </td>
                   ),
-                  'actions': (item, index) => (
+                  'actions': (item) => (
                     <td>
                       <CButtonGroup>
                         <CButton
@@ -183,7 +183,7 @@ export default () => {
                         </CButton>
                         <CButton
                           color="danger"
-                          onClick={() => handleRemoveButton(index)}
+                          onClick={() => handleRemoveButton(item.id)}
                         >
                           Excluir
                         </CButton>
